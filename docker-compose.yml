@@ -1,0 +1,22 @@
+version: "3"
+services:
+  ubuntu16-1:
+    build: targets/ubuntu
+    hostname: ubuntu16-1
+    privileged: true
+    volumes: 
+      - ./ansible/ssh/ansible_ecdsa521.pub:/root/.ssh/authorized_keys
+  ubuntu16-2:
+    build: targets/ubuntu
+    hostname: ubuntu16-2
+    privileged: true
+    volumes: 
+      - ./ansible/ssh/ansible_ecdsa521.pub:/root/.ssh/authorized_keys
+  ansible-server:
+    build: ansible
+    volumes:
+      - "./ansible/work:/opt/ansible/ansible/work"
+    hostname: myansible
+    links:
+      - ubuntu16-1:ubuntu16-1
+      - ubuntu16-2:ubuntu16-2
