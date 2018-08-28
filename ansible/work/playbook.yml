@@ -1,0 +1,8 @@
+---
+- name: touch file
+  hosts: nginx
+  vars:
+    file_name: example
+  tasks:
+  - name: touch text file
+    shell: touch {{file_name}}.txt

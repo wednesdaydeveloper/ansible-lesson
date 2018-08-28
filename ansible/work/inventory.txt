@@ -1,4 +1,2 @@
-[node]
+[nginx]
 ubuntu16-1
-ubuntu16-2
-
