@@ -1,4 +1,4 @@
-[server]
+[node]
 ubuntu16-1
 ubuntu16-2
 
